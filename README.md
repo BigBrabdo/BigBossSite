@@ -1,32 +1,30 @@
-# Big Boss Business Website
+# Big Boss - Link Hub
 
-A professional business website with a red theme featuring:
+A simple, clean linktree-style page with a black and red theme.
 
 ## Features
-- **Logo Section** - Prominent logo display at the top
-- **Navigation Menu** - Quick links to all sections (Home, About, Gallery, Contact)
-- **Hero Section** - Eye-catching introduction
-- **About Section** - Information about your business
-- **Gallery** - Showcase your work with a 4-image grid
-- **Contact Section** - Email, phone, and social media links
-- **Responsive Design** - Works on desktop, tablet, and mobile devices
-
-## Files
-- `index.html` - Main website structure
-- `styles.css` - Red-themed styling
+- Prominent circular logo at the top
+- Clean, minimal design
+- Red accent buttons for social/external links
+- Responsive mobile design
 
 ## How to Use
 
 1. Replace `logo.png` with your business logo
-2. Replace `image1.jpg`, `image2.jpg`, `image3.jpg`, `image4.jpg` with your business images
-3. Update contact information in the Contact section
-4. Update navigation links and content as needed
-5. Deploy to GitHub Pages or your web server
-
-## Color Theme
-- Primary Red: `#c41e3a` - Used for headers, buttons, and accents
-- Dark Red: `#8b1629` - Used for gradients and hover states
-- Light Background: `#f9f9f9` - Used for alternating sections
+2. Update the link buttons in `index.html` with your social media and external links
+3. Deploy to GitHub Pages or any web server
 
 ## Customization
-Edit `styles.css` to adjust colors, fonts, spacing, and layout to match your brand preferences.
+
+Edit `index.html` to change:
+- Title text
+- Link button text and URLs
+
+Edit `styles.css` to change:
+- Colors (primary red: `#c41e3a`, background: `#1a1a1a`)
+- Button sizes and spacing
+- Logo size
+
+## Color Theme
+- Primary Red: `#c41e3a`
+- Dark Background: `#1a1a1a` to `#2d2d2d` gradient
