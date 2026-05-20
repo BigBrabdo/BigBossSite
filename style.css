@@ -29,13 +29,12 @@ body {
 
 /* Logo Styling */
 .logo {
-    width: 400px;
-    height: 240px;
-    border-radius: 2%;
-    object-fit: cover;
+    width: 100%;        /* Allows image to scale down on small screens */
+    max-width: 500px;   /* Your desired maximum size for the logo */
+    height: auto !important; /* Forces aspect ratio preservation */
+    display: block;
     border: 4px solid #000000;
-    margin-bottom: 20px;
-    background-color: #000000;
+    margin-bottom: 25px;
 }
 
 /* Heading */
