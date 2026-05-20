@@ -1,30 +1,60 @@
-# Big Boss - Link Hub
+# BigBoss Site
 
-A simple, clean linktree-style page with a black and red theme.
+Professional DJ website built with Vite + Three.js
 
 ## Features
-- Prominent circular logo at the top
-- Clean, minimal design
-- Red accent buttons for social/external links
-- Responsive mobile design
 
-## How to Use
+- 🎨 Interactive 3D logo using Three.js
+- ⚡ Fast builds with Vite
+- 📱 Responsive design
+- 🚀 Automatic GitHub Pages deployment
 
-1. Replace `logo.png` with your business logo
-2. Update the link buttons in `index.html` with your social media and external links
-3. Deploy to GitHub Pages or any web server
+## Getting Started
 
-## Customization
+### Prerequisites
+- Node.js 16+ and npm
 
-Edit `index.html` to change:
-- Title text
-- Link button text and URLs
+### Local Development
 
-Edit `styles.css` to change:
-- Colors (primary red: `#c41e3a`, background: `#1a1a1a`)
-- Button sizes and spacing
-- Logo size
+```bash
+# Clone the repository
+git clone https://github.com/BigBrabdo/BigBossSite.git
+cd BigBossSite
 
-## Color Theme
-- Primary Red: `#c41e3a`
-- Dark Background: `#1a1a1a` to `#2d2d2d` gradient
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Visit `http://localhost:5173` to see your site.
+
+### Building
+
+```bash
+npm run build
+```
+
+This generates optimized files in the `dist/` folder.
+
+### Deployment
+
+Push to `main` branch and GitHub Actions automatically builds and deploys to GitHub Pages.
+
+## Customizing the 3D Logo
+
+1. Create your 3D graphic at https://3dsvg.design/
+2. Export the graphic
+3. Update `main.js` to load your custom 3D asset
+4. The 3D scene will render in the `#logo-container` element
+
+## Tech Stack
+
+- **Vite** - Build tool and dev server
+- **Three.js** - 3D graphics library
+- **3dsvg** - 3D SVG graphics package
+
+## License
+
+MIT
