@@ -1,357 +1,93 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --primary-red: #c41e3a;
-    --dark-red: #8b1629;
-    --light-bg: #f9f9f9;
-    --dark-text: #333;
-    --light-text: #666;
-}
-
+/* Base Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--dark-text);
+    background-color: #ff0000; /* Pure Red */
+    color: #000000; /* Black Text */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
+/* Layout Container */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header & Navigation */
-.header {
-    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
-    color: white;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-}
-
-.logo-section h1 {
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-}
-
-.nav-menu a:hover {
-    opacity: 0.8;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
-    color: white;
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
-.cta-button {
-    display: inline-block;
-    background: white;
-    color: var(--primary-red);
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* About Section */
-.about {
-    padding: 80px 0;
-    background: white;
-}
-
-.about h2 {
-    font-size: 36px;
-    color: var(--primary-red);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.about > .container > p {
-    text-align: center;
-    color: var(--light-text);
-    font-size: 16px;
-    margin-bottom: 50px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.feature-box {
-    background: var(--light-bg);
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    border-top: 4px solid var(--primary-red);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(196, 30, 58, 0.1);
-}
-
-.feature-box h3 {
-    color: var(--primary-red);
-    margin-bottom: 10px;
-}
-
-.feature-box p {
-    color: var(--light-text);
-}
-
-/* Gallery Section */
-.gallery {
-    padding: 80px 0;
-    background: var(--light-bg);
-}
-
-.gallery h2 {
-    font-size: 36px;
-    color: var(--primary-red);
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.gallery-item {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(196, 30, 58, 0.2);
-}
-
-.gallery-item img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-.gallery-item h3 {
-    padding: 20px;
-    color: var(--primary-red);
-    text-align: center;
-}
-
-/* Contact Section */
-.contact {
-    padding: 80px 0;
-    background: white;
-}
-
-.contact h2 {
-    font-size: 36px;
-    color: var(--primary-red);
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.contact-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-info h3 {
-    color: var(--primary-red);
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.contact-info p {
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.contact-info a {
-    color: var(--primary-red);
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-}
-
-.contact-info a:hover {
-    opacity: 0.7;
-}
-
-.contact-info h4 {
-    color: var(--primary-red);
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-.social-links {
+    max-width: 400px;
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.social-link {
-    display: inline-block;
-    background: var(--primary-red);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.social-link:hover {
-    background: var(--dark-red);
-    transform: translateY(-2px);
-}
-
-/* Footer */
-.footer {
-    background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
-    color: white;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 30px 0;
-    margin-top: 50px;
 }
 
-.footer p {
-    margin: 0;
+/* Logo Styling */
+.logo {
+    width: 400px;
+    height: 240px;
+    border-radius: 2%;
+    object-fit: cover;
+    border: 4px solid #000000;
+    margin-bottom: 20px;
+    background-color: #000000;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .hero h2 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .about h2,
-    .gallery h2,
-    .contact h2 {
-        font-size: 28px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
+/* Heading */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
 }
 
+/* Link Group */
+.links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Button Styling */
+.link-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 3px solid #000000;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+/* Hover Effects */
+.link-btn:hover {
+    background-color: #000000;
+    color: #ff0000;
+}
+
+/* Active State */
+.link-btn:active {
+    transform: scale(0.97);
+}
+
+/* Responsive Font Adjustment */
 @media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
     .logo {
-        width: 40px;
-        height: 40px;
-    }
-
-    .logo-section h1 {
-        font-size: 20px;
-    }
-
-    .hero h2 {
-        font-size: 24px;
-    }
-
-    .cta-button {
-        padding: 12px 30px;
-    }
-
-    .social-links {
-        flex-direction: column;
-    }
-
-    .social-link {
-        width: 100%;
-        text-align: center;
+        width: 100px;
+        height: 100px;
     }
 }
