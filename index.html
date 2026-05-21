@@ -8,23 +8,115 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Replace logo.png with your image URL -->
-        <img src="/BIGBOSS LOGO.png" alt="Logo" class="logo">
-        
-        <h1>Professional DJ for hire.</h1>
-	<h1>Sutible for weddings, Parties, & Bars.</h1>
-	<h1>Karaoke specialist.</h1>
+<canvas id="bg"></canvas>
 
+<div class="container">
+    <img src="BIGBOSS LOGO.png" alt="Logo" class="logo">
 
-        <nav class="links">
-            <a href="#" class="link-btn">Facebook</a>
-            <a href="https://www.instagram.com/bigbrabdo" class="link-btn">Instagram</a>
-            <a href="mailto:bigboss@thebigboss.info" class="link-btn">Email</a>
-            <a href="#" class="link-btn">About Me</a>
-            <a href="#" class="link-btn">Contact</a>
-        </nav>
-    </div>
+    <h1>Professional DJ for hire.</h1>
+    <h1>Suitable for weddings, parties, & bars.</h1>
+    <h1>Karaoke specialist.</h1>
+
+    <nav class="links">
+        <a href="#" class="link-btn">Facebook</a>
+        <a href="https://www.instagram.com/bigbrabdo" class="link-btn">Instagram</a>
+        <a href="mailto:bigboss@thebigboss.info" class="link-btn">Email</a>
+        <a href="#" class="link-btn">About Me</a>
+        <a href="#" class="link-btn">Contact</a>
+    </nav>
+</div>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165/build/three.module.js';
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('bg'),
+    antialias: true
+});
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const material = new THREE.ShaderMaterial({
+    uniforms: {
+        iTime: { value: 0 },
+        iResolution: {
+            value: new THREE.Vector3(
+                window.innerWidth,
+                window.innerHeight,
+                1
+            )
+        }
+    },
+
+fragmentShader: `
+uniform float iTime;
+uniform vec3 iResolution;
+
+void main() {
+
+    vec2 uv = gl_FragCoord.xy / iResolution.xy;
+
+    vec2 p = uv - 0.5;
+
+    p.x *= iResolution.x / iResolution.y;
+
+    float t = iTime * 0.4;
+
+    vec3 col = vec3(0.0);
+
+    for(int i = 0; i < 3; i++) {
+
+        float fi = float(i);
+
+        vec2 q = p;
+
+        q += 0.2 * vec2(
+            sin(t + fi * 2.0 + p.y * 3.0),
+            cos(t + fi * 2.0 + p.x * 3.0)
+        );
+
+        float d = length(q);
+
+        col[i] = 0.03 / d;
+    }
+
+    gl_FragColor = vec4(col, 1.0);
+}
+`
+});
+
+const quad = new THREE.Mesh(
+    new THREE.PlaneGeometry(2, 2),
+    material
+);
+
+scene.add(quad);
+
+function animate(time)
+{
+    material.uniforms.iTime.value = time * 0.001;
+
+    renderer.render(scene, camera);
+
+    requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);
+
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    material.uniforms.iResolution.value.set(
+        window.innerWidth,
+        window.innerHeight,
+        1
+    );
+});
+</script>
 
 </body>
 </html>
