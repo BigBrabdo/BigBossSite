@@ -364,9 +364,13 @@ void main()
         cross(updir, target)
     );
 
+    //this is the zoom section 
+    float zoom = 0.55;
+
     vec3 rd = normalize(
-        (p.x*rightdir + p.y*updir)
-        - target
+        (p.x * zoom * rightdir 
+        + p.y * zoom * updir)
+            - target
     );
 
     rd.xy *= rot(
