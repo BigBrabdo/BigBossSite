@@ -6,6 +6,69 @@
     <title>BIGBOSS DJ</title>
 
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: rgba(20, 20, 40, 0.95);
+            padding: 40px;
+            border: 2px solid rgba(100, 200, 255, 0.5);
+            border-radius: 10px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            color: #64c8ff;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #64c8ff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,7 +92,7 @@
         <nav class="links">
 
             <a href="#" class="link-btn">
-                Facebook (haven't made it yet)
+                Facebook (Coming Soon)
             </a>
 
             <a
@@ -47,16 +110,56 @@
                 Email
             </a>
 
-            <a href="#" class="link-btn">
+            <button id="aboutBtn" class="link-btn">
                 About Me
-            </a>
+            </button>
 
-            <a href="#" class="link-btn">
+            <button id="contactBtn" class="link-btn">
                 Contact
-            </a>
+            </button>
 
         </nav>
 
+    </div>
+
+    <!-- About Me Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeAboutModal()">&times;</button>
+            <h2>About Me</h2>
+            <p>
+                DJ BIGBOSS, a professional dedicated to the craft of high quality entertainment experiences, bringing life to events of all kinds.
+            </p>
+            <p>
+                Deploying a vast array of state of the art audio and visual equipment with maticulous attendion to detail that will leave your guests with a lasting impression.
+            </p>
+            <p>
+                Whether it's your wedding day, a lively party, or an evening at a bar, I'm dedicated to creating the perfect atmosphere with the best music selection and energy.
+            </p>
+            <p>
+                As a karaoke specialist, I also love getting people involved and having fun together. Let me help make your event unforgettable!
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeContactModal()">&times;</button>
+            <h2>Contact Me</h2>
+            <p>
+                Ready to book me for your event? Let's connect!
+            </p>
+            <p>
+                <strong>Email:</strong> bigboss@thebigboss.info
+            </p>
+            <p>
+                <strong>Phone:</strong> 518-965-7704
+            </p>
+            <p>
+                Feel free to reach out with any questions about availability, pricing, or your event details. I look forward to hearing from you!
+            </p>
+        </div>
     </div>
 
     <script type="module">
@@ -454,6 +557,48 @@ void main()
 
         });
 
+    </script>
+
+    <!-- Modal Control Scripts -->
+    <script>
+        // About Modal
+        document.getElementById('aboutBtn').addEventListener('click', () => {
+            document.getElementById('aboutModal').classList.add('active');
+        });
+
+        function closeAboutModal() {
+            document.getElementById('aboutModal').classList.remove('active');
+        }
+
+        // Contact Modal
+        document.getElementById('contactBtn').addEventListener('click', () => {
+            document.getElementById('contactModal').classList.add('active');
+        });
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            const aboutModal = document.getElementById('aboutModal');
+            const contactModal = document.getElementById('contactModal');
+            
+            if (e.target === aboutModal) {
+                closeAboutModal();
+            }
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
+
+        // Close modals with Escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAboutModal();
+                closeContactModal();
+            }
+        });
     </script>
 
 </body>
