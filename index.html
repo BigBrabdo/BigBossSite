@@ -167,7 +167,7 @@
         import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165/build/three.module.js';
 
         // LOWER = FASTER
-        const SCALE = 0.55;
+        const SCALE = 0.25;
 
         const scene = new THREE.Scene();
 
@@ -182,8 +182,8 @@
 
         const renderer = new THREE.WebGLRenderer({
             canvas: document.getElementById('bg'),
-            antialias: false,
-            powerPreference: "high-performance"
+            antialias: true,
+            powerPreference: "low-power"
         });
 
         renderer.setPixelRatio(1);
@@ -315,7 +315,7 @@ vec4 render(in vec3 ro, in vec3 rd, float time)
     float fogT = 0.0;
 
     // LOWER = FASTER
-    for(int i=0; i<55; i++)
+    for(int i=0; i<50; i++)
     {
         if(rez.a > 0.99) break;
 
@@ -547,15 +547,8 @@ void main()
 
         });
 
-        window.addEventListener('mousemove', (e) => {
 
-            material.uniforms.iMouse.value.x =
-                e.clientX;
-
-            material.uniforms.iMouse.value.y =
-                window.innerHeight - e.clientY;
-
-        });
+      
 
     </script>
 
