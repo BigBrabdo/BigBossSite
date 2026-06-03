@@ -167,7 +167,7 @@
         import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.165/build/three.module.js';
 
         // LOWER = FASTER
-        const SCALE = 0.25;
+        const SCALE = window.innerWidth > 1024 ? 0.25 : (window.innerWidth > 768 ? 0.35 : 0.55);
 
         const scene = new THREE.Scene();
 
